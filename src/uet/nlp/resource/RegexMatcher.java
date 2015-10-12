@@ -33,32 +33,46 @@ public class RegexMatcher {
 		DocumentBuilder bBuilder = dbFactory.newDocumentBuilder();
 		Document doc = bBuilder.parse(xmlFile);
 		doc.getDocumentElement().normalize();
-		NodeList nList = doc.getElementsByTagName("group");
+		NodeList nList = doc.getElementsByTagName("w");
 		for (int i=0; i < nList.getLength(); i++){
 			
 			Node nNode = nList.item(i);
-			if (nNode.getNodeType() == Node.ELEMENT_NODE){
-				Element regexGroup = (Element)nNode;
-				String type = regexGroup.getAttribute("type");
-				NodeList regexSubList = regexGroup.getElementsByTagName("re");
-				for (int j=0; j < regexSubList.getLength(); j++){
-					Node regexNode = regexSubList.item(j);	
-					Regex regex = new Regex(regexNode.getTextContent(),type);
-					
-					regexs.add(regex);
-				}
-							
-			}
+			Element regexEl = (Element)nNode;
+			String regexType = regexEl.getAttribute("msd");
+			String regexCont = regexEl.getTextContent();			
+			Regex regex = new Regex(regexCont, regexType);
+			regexs.add(regex);
+//			if (nNode.getNodeType() == Node.ELEMENT_NODE){
+//				Element regexGroup = (Element)nNode;
+//				String type = regexGroup.getAttribute("type");
+//				NodeList regexSubList = regexGroup.getElementsByTagName("re");
+//				for (int j=0; j < regexSubList.getLength(); j++){
+//					Node regexNode = regexSubList.item(j);	
+//					Regex regex = new Regex(regexNode.getTextContent(),type);
+//					
+//					regexs.add(regex);
+//				}
+//							
+//			}
 		}
 	}
-	public Regex getMatchedRegex(String input){
+	public Regex getLongestMatchedRegex(String input){
 		Pattern pattern;
 		Matcher matcher;
+		int longestLen = -1;
+		Regex res = null;
 		for (Regex regex : regexs){
 			pattern = Pattern.compile(regex.getString());
 			matcher = pattern.matcher(input);
-			if (matcher.find()) return regex;
+			if (matcher.lookingAt() ){
+				int matchedLen = matcher.end();
+				if (matchedLen > longestLen){
+					longestLen = matchedLen;
+					res = regex;
+				}
+			}
 		}
-		return null;
+		if (res != null) res.setLgstAcLen(longestLen);
+		return res;
 	}
 }

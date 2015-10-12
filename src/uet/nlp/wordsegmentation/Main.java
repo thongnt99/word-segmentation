@@ -1,7 +1,9 @@
 package uet.nlp.wordsegmentation;
 
+import uet.nlp.resource.RegexMatcher;
+
 public class Main {
 	public static void main(String[] args){
-		System.out.println("Hello wordsegmentation.");
+		RegexMatcher rm = new RegexMatcher("resources/regex/regex.xml");		
 	}
 }

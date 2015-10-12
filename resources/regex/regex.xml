@@ -1,44 +1,65 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <regex_corpus>
-	<group type="date">
-		<!-- full date -->
-		<re desc="mm-dd-yy">(0*[1-9]|1[012])-(0*[1-9]|[12][0-9]|3[01])-\d\d</re>
-		<re desc="mm/dd/yy">(0*[1-9]|1[012])/(0*[1-9]|[12][0-9]|3[01])/\d\d</re>
-        <re desc="mm.dd.yy">(0*[1-9]|1[012])\.(0*[1-9]|[12][0-9]|3[01])\.\d\d</re>
-        <re desc="dd-mm-yy">([12][0-9]|3[01]|0*[1-9])-(1[012]||0*[1-9])-\d\d</re>
-        <re desc="dd/mm/yy">([12][0-9]|3[01]|0*[1-9])/(1[012]||0*[1-9])/\d\d</re>
-        <re desc="dd.mm.yy">([12][0-9]|3[01]|0*[1-9])[\.](1[012]||0*[1-9])[\.]\d\d</re>
-        <re desc="dd-mm-yyyy">([12][0-9]|3[01]|0*[1-9])-(1[012]||0*[1-9])-(19|20)\d\d</re>
-        <re desc="dd/mm/yyyy">([12][0-9]|3[01]|0*[1-9])/(1[012]||0*[1-9])/(19|20)\d\d</re>
-        <re desc="dd.mm.yyyy">([12][0-9]|3[01]|0*[1-9])\.(1[012]||0*[1-9])\.(19|20)\d\d</re>
-        <re desc="mm-dd-yyyy">(0*[1-9]|1[012])-([12][0-9]|3[01]|0*[1-9])-(19|20)\d\d</re>
-        <re desc="mm/dd/yyyy">(0*[1-9]|1[012])/([12][0-9]|3[01]|0*[1-9])/(19|20)\d\d</re>
-        <re desc="mm.dd.yyyy">(0*[1-9]|1[012])\.([12][0-9]|3[01]|0*[1-9])\.(19|20)\d\d</re>
-        <re desc="yyyy-mm-dd">(19|20)\d\d-(0*[1-9]|1[012])-([12][0-9]|3[01]|0*[1-9])</re>
-        <re desc="yyyy/mm/dd">(19|20)\d\d/(0*[1-9]|1[012])/([12][0-9]|3[01]|0*[1-9])</re>
-        <re desc="yyyy.mm.dd">(19|20)\d\d\.(0*[1-9]|1[012])\.([12][0-9]|3[01]|0*[1-9])</re>
-		<!-- date without year -->
-        <re desc="dd-mm">(0*[1-9]|[12][0-9]|3[01])[-/\.](1[012]|0*[1-9])</re>
-		<!-- month and year -->
-        <re desc="mm-yy">(0*[1-9]|1[012])[-/\.]\d\d</re>
-        <re desc="mm-yyyy">(0*[1-9]|1[012])[-/\.](19|20)\d\d</re>
-		<!-- only year -->
-        <re desc="yyyy">(19|20)\d\d</re>
-	</group>
-	<group type="time">
-		<re desc="hh:mm:ss">([0-1]\d|[2][0-3]):[0-5]\d:[0-5]\d</re>
-	</group>
-	<group type="name">
-		<re desc="">([A-ZÁÂĐÐÍÔƯỨÝỶ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)(\s+[A-ZÁÂĐÐÍÔƯỨÝỶ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)*</re>
-	</group>
-	<group type="address">
-		<re desc="email">(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})</re>
-	</group>
-	<group type="number">
-		<re desc="percent">[+-]?(\d*[\.,])?\d+%</re>
-		<re desc="degree">[+-]?(\d*[\.,])?\d+°</re>
-		<re desc="currency">\p{Sc}\s?[+-]?(\d*[\.,])?\d+|[+-]?(\d*[\.,])?\d+\s?\p{Sc}</re>
-	</group>
-	<group type="">
-	</group>
+        <w msd="numbersign">#</w>
+        <w msd="ampersand">&amp;</w>
+        <w msd="date_mm-dd-yy">(0*[1-9]|1[012])-(0*[1-9]|[12][0-9]|3[01])-\d\d</w>
+        <w msd="date_mm/dd/yy">(0*[1-9]|1[012])/(0*[1-9]|[12][0-9]|3[01])/\d\d</w>
+        <w msd="date_mm.dd.yy">(0*[1-9]|1[012])\.(0*[1-9]|[12][0-9]|3[01])\.\d\d</w>
+        <w msd="date_dd-mm-yy">([12][0-9]|3[01]|0*[1-9])-(1[012]||0*[1-9])-\d\d</w>
+        <w msd="date_dd/mm/yy">([12][0-9]|3[01]|0*[1-9])/(1[012]||0*[1-9])/\d\d</w>
+        <w msd="date_dd.mm.yy">([12][0-9]|3[01]|0*[1-9])[\.](1[012]||0*[1-9])[\.]\d\d</w>
+        <w msd="date_dd-mm-yyyy">([12][0-9]|3[01]|0*[1-9])-(1[012]||0*[1-9])-(19|20)\d\d</w>
+        <w msd="date_dd/mm/yyyy">([12][0-9]|3[01]|0*[1-9])/(1[012]||0*[1-9])/(19|20)\d\d</w>
+        <w msd="date_dd.mm.yyyy">([12][0-9]|3[01]|0*[1-9])\.(1[012]||0*[1-9])\.(19|20)\d\d</w>
+        <w msd="date_dd-mm">(0*[1-9]|[12][0-9]|3[01])[-/\.](1[012]|0*[1-9])</w>
+        <w msd="date_mm-yy">(0*[1-9]|1[012])[-/\.]\d\d</w>
+        <w msd="date_mm-yyyy">(0*[1-9]|1[012])[-/\.](19|20)\d\d</w>
+        <w msd="date_yyyy">(19|20)\d\d</w>
+        <w msd="date_mm-dd-yyyy">(0*[1-9]|1[012])-([12][0-9]|3[01]|0*[1-9])-(19|20)\d\d</w>
+        <w msd="date_mm/dd/yyyy">(0*[1-9]|1[012])/([12][0-9]|3[01]|0*[1-9])/(19|20)\d\d</w>
+        <w msd="date_mm.dd.yyyy">(0*[1-9]|1[012])\.([12][0-9]|3[01]|0*[1-9])\.(19|20)\d\d</w>
+        <w msd="date_yyyy-mm-dd">(19|20)\d\d-(0*[1-9]|1[012])-([12][0-9]|3[01]|0*[1-9])</w>
+        <w msd="date_yyyy/mm/dd">(19|20)\d\d/(0*[1-9]|1[012])/([12][0-9]|3[01]|0*[1-9])</w>
+        <w msd="date_yyyy.mm.dd">(19|20)\d\d\.(0*[1-9]|1[012])\.([12][0-9]|3[01]|0*[1-9])</w>
+        <w msd="hhmmss">([0-1]\d|[2][0-3]):[0-5]\d:[0-5]\d</w>
+        <w msd="percent">([0-9]*[\.,])?[0-9]+%</w>
+        <w msd="name1">[A-ZÁÂĐÍÔƯỨÝỶ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*</w>
+        <w msd="name2">([A-ZÁÂĐÍÔƯỨÝỶ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]*)(\s+[A-ZÁÂĐÍÔƯỨÝỶ][aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+)*</w>
+        <w msd="phrase">([AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ])?([aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz\s])*([aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz])+(?=(\s|$))</w>
+        <w msd="allcaps">([AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ]+)(\s*[AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬBCDĐEÈẺẼÉẸÊỀỂỄẾỆFGHIÌỈĨÍỊJKLMNOÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢPQRSTUÙỦŨÚỤƯỪỬỮỨỰVWXYỲỶỸÝỴZ]+)*[^aàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz/\)\(\?!\.;:,\-"']</w>
+        <w msd="fraction">(\d+)/(\d+)</w>
+        <w msd="email">(\w[-._\w]*\w@\w[-._\w]*\w\.\w{2,3})</w>
+        <w msd="return">(^$)</w>
+        <w msd="fslash">/</w>
+        <w msd="langle">&lt;</w>
+        <w msd="xmltags">&lt;/*\w*&gt;</w>
+        <w msd="equal">=</w>
+        <w msd="rangle">&gt;</w>
+        <w msd="aroba">@</w>
+        <w msd="number1">[+]?([0-9]*)?[0-9]+([\.,]\d+)*</w>
+        <!-- 
+        <w msd="number2">[+]?([0-9]*)?[0-9]+([\.,]\d+)*(\s|tỉ|tỷ|triệu|ngàn|nghìn|trăm|chục)*</w>
+        -->
+        <w msd="degree">[-+]?([0-9]*[\.,])?[0-9]+°</w>
+        <w msd="ponctuation">[\\?!\\.:;,\-"']</w>
+        <w msd="dollar">\$</w>
+        <w msd="lparen">\(</w>
+        <w msd="rparen">\)</w>
+        <w msd="asterisk">\*</w>
+        <w msd="plus">\+</w>
+        <w msd="minus">\-</w>
+        <w msd="ellipsis">\.\.\.</w>
+        <w msd="residual">\W</w>
+        <w msd="lbracket">\[</w>
+        <w msd="bslash">\\</w>
+        <w msd="rbracket">\]</w>
+        <w msd="entity0">\d+([\.,]\d+)*[A-Zaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+\d+$</w>
+        <w msd="entity1">[A-Zaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+(\d)*$</w>
+        <w msd="entity2">[A-Zaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz\d]+([\.\-/][\dA-Zaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+)*[\dA-Zaàảãáạăằẳẵắặâầẩẫấậbcdđeèẻẽéẹêềểễếệfghiìỉĩíịjklmnoòỏõóọôồổỗốộơờởỡớợpqrstuùủũúụưừửữứựvwxyỳỷỹýỵz]+</w>
+        <w msd="space">\s+</w>
+        <w msd="word">\w</w>
+        <w msd="lcbrace">\{</w>
+        <w msd="rcbrace">\}</w>
+        <w msd="underscore">_</w>
+        <w msd="pound">£</w>
 </regex_corpus>

@@ -19,9 +19,9 @@ public class Dictionary {
 		try{
 			fr = new FileReader(new File(dictPath));
 			br = new BufferedReader(fr);
-			String line;
+			String line;			
 			while ( (line = br.readLine())!= null){
-				dict.add( StrUtils.normalizeString(line) );
+				dict.add( StrUtils.normalizeString(line) );				
 			}
 			
 		} catch (IOException ioException){
@@ -30,8 +30,8 @@ public class Dictionary {
 		}
 	}
 	
-	public boolean contains(String word){
-		word = StrUtils.normalizeString(word);
+	public boolean contains(String word){ 		
+		word = StrUtils.normalizeString(word);		
 		return dict.contains(word);
 	}
 	

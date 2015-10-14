@@ -1,7 +1,7 @@
 package uet.nlp.resource;
 
 public class Regex {
-	
+	public static String PHRASE_TYPE = "phrase";
 	private String str;
 	private String type;
 	private int lgstAcLen;
@@ -23,5 +23,8 @@ public class Regex {
 	}
 	public String getType(){
 		return this.type;
+	}
+	public boolean isPhrase(){
+		return type.equals(PHRASE_TYPE);
 	}
 }

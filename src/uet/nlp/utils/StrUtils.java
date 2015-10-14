@@ -19,15 +19,20 @@ public class StrUtils {
 	public static String normalizeString(String input){
 		String output = StrUtils.rmSpaceDup(input);
 		output = StrUtils.toLowercase(output);
-		return output;
+		return output.trim();
 	}
 	
 	public static List<String> tokenizeString(String input){
-		return tokenizerString(input,"\\s");		
+		StringTokenizer strTokenizer = new StringTokenizer(input);		
+		List<String> output = new ArrayList<String>();
+		while (strTokenizer.hasMoreTokens()){
+			output.add(strTokenizer.nextToken());
+		}
+		return output;		
 	}
 	
-	public static List<String> tokenizerString(String input, String delimiter){
-		StringTokenizer strTokenizer = new StringTokenizer(input,delimiter);
+	public static List<String> tokenizeString(String input, String delimiter){
+		StringTokenizer strTokenizer = new StringTokenizer(input,delimiter);		
 		List<String> output = new ArrayList<String>();
 		while (strTokenizer.hasMoreTokens()){
 			output.add(strTokenizer.nextToken());

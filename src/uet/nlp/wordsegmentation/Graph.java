@@ -23,6 +23,12 @@ public class Graph {
 		for (Edge edge : edges){
 			index[edge.getSrc()] ++;
 		}
+		for (int i=1; i<= n; i++){
+			if (index[i] == 0){
+				index[i] =1;
+				edges.add(new Edge(i, i+1, 1));
+			}
+		}
 		
 		for (int i=1; i <= n; i++) index[i] = index[i-1]+index[i];
 		int[] tmp = new int[n+1];

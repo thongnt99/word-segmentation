@@ -71,7 +71,8 @@ public class Evaluation {
 		int[] accWIndex = calculateIndex(accurateWords);
 		List<String> predictedwords = new Segmenter().segment(unSegmentedStr);
 		int[] preWIndex = calculateIndex(predictedwords);
-		
+		System.out.println(accurateWords);
+		System.out.println(predictedwords);
 		for (int i = 0; i < accurateWords.size(); i++){
 			String accWord = accurateWords.get(i);
 			for (int j=0; j < predictedwords.size(); j++ ){

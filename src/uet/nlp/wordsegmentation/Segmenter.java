@@ -28,18 +28,17 @@ public class Segmenter {
 				List<String> subSegs = segmentPhrase(matchedPart);
 				segs.addAll(subSegs);
 			} else 
-				segs.add(matchedPart);					
+				segs.add(matchedPart.replace(" ","_"));					
 		}
 		return segs;
 	}
 	
 	private List<String> segmentPhrase(String phrase){		
-		List<String> segs = new ArrayList<String>();
-		
+		List<String> segs = new ArrayList<String>();		
 		Graph wordGraph = buildGraph(phrase);		
 		List<String> tokens = StrUtils.tokenizeString(phrase);		
 		List<Integer> bestSegs = wordGraph.getShortestPath();
-					
+		if (bestSegs != null)
 		for (int i=1; i < bestSegs.size(); i++){			
 			int start = bestSegs.get(i)-1;
 			int end = bestSegs.get(i-1)-1;		
@@ -47,7 +46,8 @@ public class Segmenter {
 			for (int j = start+1; j < end; j++)
 				word = word +"_"+tokens.get(j);
 			segs.add(0, word);
-		}		
+		} else 
+			segs.addAll(tokens);
 		return segs;
 	}
 	

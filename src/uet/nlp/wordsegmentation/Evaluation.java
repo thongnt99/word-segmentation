@@ -2,89 +2,191 @@ package uet.nlp.wordsegmentation;
 
 import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
-import java.io.IOException;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
-
 
 import uet.nlp.utils.StrUtils;
 
 public class Evaluation {
-	public static int humanCount;
-	public static int modelCount;
-	public static int matchedCount;
-	public static int totalFiles;
-	public static int totalLines;
-	public static void main(String[] args){
-		init();
-		File folder = new File("data/test");
-		if (!folder.exists() || !folder.isDirectory()) return;		
-		for (File file : folder.listFiles()){			
-			try{
-				evalFile(file);
-				totalFiles ++;
-			} catch (Exception e){
-				e.printStackTrace();
-			}						
+
+	private static final String TEXT_DIR = "data/test/text";
+	private static final String SEG_MODEL_DIR = "data/test/seg_model";
+	private static final String SEG_HUMAN_DIR = "data/test/seg_human";
+
+	private static int totalHumanCount, totalModelCount, totalMatchCount;
+	private static int totalLines;
+	private static int totalTime;
+
+	private static int humanCount, modelCount, matchCount;
+
+	private static Segmenter segmenter;
+
+	public static void main(String args[]) {
+		long initTime = init();
+		System.out.println("Initialize time: " + initTime);
+
+		System.out.println("--------------------\n");
+		System.out.println("File\tLines\tTime\t" + "Human\tModel\tMatch\t"
+				+ "Pre\tRecall\tF1");
+
+		File textDir = new File(TEXT_DIR);
+		for (String s : textDir.list()) {
+			String fileName = s.substring(0, s.lastIndexOf('.'));
+			process(fileName);
 		}
-		System.out.println("Human\tModel\tMatch\tPrecision\tRecall\tF1");
-		double precision = (double) matchedCount / (double) modelCount;
-		double recall = (double) matchedCount / (double) humanCount;
-		double f1 = 2*precision*recall / (precision + recall);
-		System.out.println(humanCount+"\t"+modelCount+"\t"+matchedCount+"\t"+precision
-				+"\t"+recall+"\t"+f1);
+
+		System.out.println();
+		double precision = round((double) totalMatchCount / totalModelCount, 4);
+		double recall = round((double) totalMatchCount / totalHumanCount, 4);
+		double f1 = round(2 * precision * recall / (precision + recall), 4);
+		System.out.println("Total\t" + totalLines + "\t" + totalTime + "\t"
+				+ totalHumanCount + "\t" + totalModelCount + "\t"
+				+ totalMatchCount + "\t" + precision + "\t" + recall + "\t"	+ f1);
 	}
-	public static void init(){
-		humanCount = 0;
-		modelCount = 0;
-		matchedCount = 0;
-		totalFiles = 0;
+
+	private static long init() {
+		long start = System.currentTimeMillis();
+
+		totalHumanCount = totalModelCount = totalMatchCount = 0;
 		totalLines = 0;
+		totalTime = 0;
+		segmenter = new Segmenter();
+
+		return (System.currentTimeMillis() - start);
 	}
-	public static void evalFile(File file) throws IOException{
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		String line;
-		while ( (line= br.readLine()) != null){
-			if (!line.startsWith("<")) {
-				evalSen(line);				
-				totalLines ++;
+
+	private static void process(String fileName) {
+		try {
+			String textPath = TEXT_DIR + "/" + fileName + ".txt";
+			BufferedReader reader = new BufferedReader(new FileReader(textPath));
+			String line;
+
+			int lineCount = 0;
+			List<List<String>> segmentRes = new ArrayList<>();
+
+			long start = System.currentTimeMillis();
+
+			while ((line = reader.readLine()) != null) {
+				segmentRes.add(segmenter.segment(line));
+				lineCount++;
 			}
+
+			long time = System.currentTimeMillis() - start;
+
+			reader.close();
+
+			saveSegment(segmentRes, fileName);
+			evaluate(segmentRes, fileName);
+
+			double precision = round((double) matchCount / modelCount, 4);
+			double recall = round((double) matchCount / humanCount, 4);
+			double f1 = round(2 * precision * recall / (precision + recall), 4);
+			System.out.println(fileName + "\t" + lineCount + "\t" + time + "\t"
+					+ humanCount + "\t" + modelCount + "\t" + matchCount + "\t"
+					+ precision + "\t" + recall + "\t" + f1);
+
+			totalLines += lineCount;
+			totalTime += time;
+			totalHumanCount += humanCount;
+			totalModelCount += modelCount;
+			totalMatchCount += matchCount;
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		br.close();
 	}
-	public static int[] calculateIndex(List<String> words){
-		int[] indexArr = new int[words.size()];
+
+	private static double round(double x, int n) {
+		if (n < 0)
+			return x;
+
+		long factor = 1;
+		for (int i = 0; i < n; i++)
+			factor *= 10;
+		x *= factor;
+
+		return (double) Math.round(x) / factor;
+	}
+
+	private static void saveSegment(List<List<String>> seg, String fileName) {
+		try {
+			StringBuilder res = new StringBuilder();
+			for (List<String> line : seg) {
+				StringBuilder sb = new StringBuilder();
+				for (String word : line)
+					sb.append(word + " ");
+				res.append(sb.toString().trim() + "\n");
+			}
+
+			String outFilePath = SEG_MODEL_DIR + "/" + fileName + ".seg";
+			FileWriter writer = new FileWriter(outFilePath);
+			writer.write(res.toString());
+			writer.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static void evaluate(List<List<String>> modelSeg, String fileName) {
+		try {
+			humanCount = modelCount = matchCount = 0;
+
+			String humanSeg = SEG_HUMAN_DIR + "/" + fileName + ".seg";
+			BufferedReader reader = new BufferedReader(new FileReader(humanSeg));
+
+			for (List<String> modelWords : modelSeg) {
+				String line = reader.readLine();
+				if (line == null)
+					break;
+				String[] humanWords = line.split(" ");
+
+				humanCount += humanWords.length;
+				modelCount += modelWords.size();
+				matchCount += getMatchCount(humanWords, modelWords);
+			}
+
+			reader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	private static int[] calculateIndex(String[] words) {
+		int[] indexArr = new int[words.length];
 		int index = 0;
-		for (int i = 0; i < words.size(); i++ ){
+		for (int i = 0; i < words.length; i++) {
 			indexArr[i] = index;
-			index += StrUtils.tokenizeString(words.get(i),"_").size();
+			index += StrUtils.tokenizeString(words[i], "_").size();
 		}
 		return indexArr;
 	}
-	public static void evalSen(String sen){
-		
-		String unSegmentedStr = sen.replace("_"," ");
-		
-		List<String> accurateWords = StrUtils.tokenizeString(sen);
-		int[] accWIndex = calculateIndex(accurateWords);
-		List<String> predictedwords = new Segmenter().segment(unSegmentedStr);
-		int[] preWIndex = calculateIndex(predictedwords);
-		System.out.println(accurateWords);
-		System.out.println(predictedwords);
-		for (int i = 0; i < accurateWords.size(); i++){
-			String accWord = accurateWords.get(i);
-			for (int j=0; j < predictedwords.size(); j++ ){
-				String preWord = predictedwords.get(j);
-				if (accWord.equals(preWord) && accWIndex[i] == preWIndex[j]){
-					matchedCount ++;
-				}
-				if (preWIndex[j] > accWIndex[i]) break;
-			}
+
+	private static int[] calculateIndex(List<String> words) {
+		int[] indexArr = new int[words.size()];
+		int index = 0;
+		for (int i = 0; i < words.size(); i++) {
+			indexArr[i] = index;
+			index += StrUtils.tokenizeString(words.get(i), "_").size();
 		}
-		humanCount += accurateWords.size();
-		modelCount += predictedwords.size();
-						
-	}	
+		return indexArr;
+	}
+
+	private static int getMatchCount(String[] humanWords,
+			List<String> modelWords) {
+		int[] humanIndex = calculateIndex(humanWords);
+		int[] modelIndex = calculateIndex(modelWords);
+
+		int matchCount = 0;
+		for (int i = 0, j = 0; i < humanWords.length; i++) {
+			while (j < modelIndex.length - 1 && humanIndex[i] > modelIndex[j])
+				j++;
+			if (humanIndex[i] == modelIndex[j])
+				if (humanWords[i].equals(modelWords.get(j)))
+					matchCount++;
+		}
+
+		return matchCount;
+	}
+
 }

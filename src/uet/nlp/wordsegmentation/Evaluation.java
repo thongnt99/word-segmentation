@@ -43,7 +43,8 @@ public class Evaluation {
 		double f1 = round(2 * precision * recall / (precision + recall), 4);
 		System.out.println("Total\t" + totalLines + "\t" + totalTime + "\t"
 				+ totalHumanCount + "\t" + totalModelCount + "\t"
-				+ totalMatchCount + "\t" + precision + "\t" + recall + "\t"	+ f1);
+				+ totalMatchCount + "\t" + precision + "\t" + recall + "\t"
+				+ f1);
 	}
 
 	private static long init() {

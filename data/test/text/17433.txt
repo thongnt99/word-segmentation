@@ -1,0 +1,55 @@
+2004/01/26 06:12:00
+Phác đồ xử trí bệnh nhiễm viêm đường hô hấp cấp do virus cúm typ A chủng H5N1
+TT - Ngày 19 - 1 , Thứ trưởng Bộ Y tế Lê Ngọc Trọng đã ký quyết định ban hành " Hướng dẫn chẩn đoán , xử trí và phòng lây nhiễm viêm đường hô hấp cấp nặng do virus cúm " , áp dụng tại các cơ sở khám chữa bệnh nhà nước , bán công , tư nhân , dân lập và có vốn đầu tư của nước ngoài .
+Sau đây là một số thông tin chính trích từ bản hướng dẫn này .
+I. Chẩn đoán
+Dựa trên các yếu tố và triệu chứng sau :
+1 .
+Có liên quan đến yếu tố dịch tễ : Người bệnh sống ở vùng có nuôi gia cầm hoặc gia súc bị bệnh hoặc tiếp xúc với người bị cúm .
+2 .
+Lâm sàng
+Bệnh diễn biến cấp tính và có các biểu hiện như sau :
+- Có dấu hiệu nhiễm khuẩn , sốt cao liên tục hoặc có thể rét run .
+- Các triệu chứng về hô hấp : ho , thường ho khan , đôi khi có triệu chứng như viêm đường hô hấp ; đau ngực ; khó thở , tím tái , trường hợp nặng có suy hô hấp tiến triển nhanh ; nghe phổi có hoặc không có ran ẩm .
+- Các triệu chứng về tuần hoàn : sốc tiến triển nhanh .
+- Các triệu chứng khác : đau đầu , đau cơ ; có thể có triệu chứng tiêu chảy hoặc rối loạn ý thức .
+3 .
+Xét nghiệm
+- X quang phổi ( xét nghiệm bắt buộc ) : có hình ảnh viêm phổi tiến triển nhanh , đôi khi có tổn thương tập trung giống viêm phổi thuỳ nhưng ranh giới không rõ ; tổn thương lan toả cả hai bên , tiến triển nhanh cần chụp phổi hằng ngày .
+- Xét nghiệm máu : số lượng bạch cầu và bạch cầu trung tính thường giảm , đôi khi bạch cầu tăng ; có thể giảm tiểu cầu , CRP tăng nhẹ ; có tình trạng giảm oxy máu khi bệnh tiến triển nặng , khi bệnh rất nặng , pH máu giảm .
+Bệnh cảnh cuối cùng là hội chứng suy hô hấp tiến triển .
+- Chẩn đoán vi sinh vật : virus : lấy dịch mũi , họng hoặc nội khí quản , máu , làm test nhanh hoặc gửi về nơi có điều kiện xét nghiệm để xác định nguyên nhân ( làm PCR để định virus cúm A và làm Elisa và ngưng kết hồng cầu thụ động để định dưới nhóm H5N1 ) ; vi khuẩn : cấy máu , cấy dịch màng phổi , dịch nội khí quản khi nghi ngờ bội nhiễm .
+II. Xử trí
+a ) Nguyên tắc chung : khi phát hiện , bệnh nhân phải được nhập viện và cách ly .
+b ) Điều trị suy hô hấp
+- Làm thông đường thở : đặt bệnh nhân ở tư thế lưng và đầu cao 30 độ , hút sạch đờm dãi .
+- Cung cấp oxy : thở oxy qua mặt nạ 4 - 10 lít / phút tuỳ theo tuổi ; qua gọng mũi hoặc ống thông mũi 1 - 4 lít / phút ; thở CPAP khi thở oxy qua mặt nạ hay qua mũi nhưng tình trạng bệnh nhân không cải thiện , vẫn tím tái , kích thích , vật vã , SpO2 90 % ; O2 80 mmHg .
+Nên đặt ống thông dạ dày để tránh trướng bụng ; khi cho thở CPAP không cải thiện , đặt nội khí quản để cho bệnh nhân thở máy .
+- Lưu ý khi bệnh nhân có mạch nhanh , huyết áp giảm , tràn khí màng phổi để xử trí kịp thời .
+Nếu bệnh nhân chống máy , cần dùng giảm đau , an thần , giãn cơ như morphine , Diazepam hoặc Pancuronium .
+Nếu bệnh nhân có nhịp tim nhanh dùng Vecuronium liều 0,1 mg / kg tiêm tĩnh mạch , sau đó duy trì truyền tĩnh mạch .
+Nếu bệnh nhân có suy gan , suy thận dùng Atracurium , liều 0,3 - 0,6 mg / kg tiêm tĩnh mạch , sau đó duy trì truyền tĩnh mạch .
+c ) Điều trị sốc : Điều chỉnh rối loạn nước và điện giải đảm bảo lượng dịch 70 - 80 % nhu cầu sinh lý .
+Các dung dịch sử dụng bao gồm ringer lactat , glucose 5 % , natriclorua 0,9 % .
+Trường hợp có giảm albumin máu thêm dung dịch plasma hay các dung dịch cao phân tử .
+Nếu có tình trạng sốc không cải thiện sau khi đã bù dịch thì dùng thuốc vận mạch Dopamin hoặc Dobutamin .
+Nếu có điều kiện đặt ống thông tĩnh mạch trung tâm để kiểm soát lưu lượng tuần hoàn ; dùng corticoid .
+d ) Điều trị hỗ trợ : Nới bớt quần áo , bỏ chăn đắp , chườm mát khi bệnh nhân có sốt .
+Khi sốt cao trên 38,5
+C cho bệnh nhân dùng thuốc hạ sốt Paracetamol , liều 15 mg / kg / lần ( ngày bốn lần ) ; bảo đảm chế độ dinh dưỡng , chăm sóc ( bệnh nhân nhẹ cho ăn qua đường miệng , bệnh nhân nặng cho ăn sữa và bột dinh dưỡng qua ống thông dạ dày 2/3 lượng dịch theo yêu cầu , phần còn lại truyền tĩnh mạch dung dịch tinh thể và dung dịch đường ) ; chống loét , tăng sức đề kháng và chăm sóc hô hấp cho bệnh nhân .
+e ) Điều trị kháng sinh : Dùng các thuốc kháng virus như Tamiflu , Amantadine , Ribavirin ; các kháng sinh chống bội nhiễm nhóm Cephalosporin thế hệ 3 : 100 mg / kg / ngày kết hợp với amikacin 15 mg / kg / ngày , tiêm tĩnh mạch .
+f ) Tiêu chuẩn ra viện : Hết sốt năm ngày mà không dùng kháng sinh , toàn trạng tốt , xét nghiệm máu , X quang tim , phổi trở về bình thường .
+g ) Phòng lây nhiễm : Thực hiện các biện pháp cách ly và chống nhiễm khuẩn nghiêm ngặt .
+Mọi nhân viên y tế khi phát hiện người bệnh nghi ngờ đều phải chỉ dẫn người bệnh đến các cơ sở y tế được chỉ định tiếp nhận các người bệnh này để họ được khám , phân loại và cách ly nếu cần ; trong bệnh viện phải tổ chức các khu vực cách ly .
+Trước cửa buồng bệnh để chậu nước cloramin B 5 % để rửa tay trước khi vào và sau khi ra .
+Đặt tấm vải tẩm cloramin B hoặc formalin ở nền nhà trước cửa ra vào để mọi người phải đi qua tấm vải tẩm hoá chất này ; về phòng ngừa cho người bệnh và khách đến thăm : cần phát hiện sớm và cách ly ngay với những người nghi ngờ mắc bệnh .
+Tất cả người bệnh đều phải đeo khẩu trang tiêu chuẩn , người bệnh cần chụp X quang , làm các xét nghiệm , khám chuyên khoa cần được tiến hành tại giường .
+Hạn chế người nhà vào thăm bệnh nhân , người nhà đến thăm người bệnh ngoài khu vực cách ly cũng phải đeo khẩu trang ...
+Các biện pháp phòng bệnh chung : Vệ sinh cá nhân , nhỏ mũi , súc miệng - họng bằng các thuốc sát khuẩn , uống vitamin C .
+Văcxin phòng bệnh đặc hiệu : Hiện chưa có văcxin đặc hiệu với virus cúm A chủng H5N1 .
+Ngày 20 - 1 , Bộ Y tế phân công Viện Y học lâm sàng các bệnh nhiệt đới ( Bệnh viện Bạch Mai ) tiếp nhận bệnh nhân người lớn ở khu vực phía Bắc ; bệnh nhân trẻ em chuyển về Bệnh viện Nhi trung ương .
+Ở khu vực phía Nam , bệnh nhân người lớn chuyển về Bệnh viện Chợ Rẫy và Bệnh viện Bệnh nhiệt đới TP. HCM , bệnh nhân trẻ em chuyển về Bệnh viện Nhi Đồng 1 và Nhi Đồng 2 TP. HCM . Tại khu vực miền Trung , các trường hợp nghi ngờ và mắc bệnh chuyển về Bệnh viện Trung ương Huế .
+Bộ Y tế dự báo tình hình dịch bệnh còn diễn biến phức tạp .
+Bộ Y tế yêu cầu các bệnh viện được giao nhiệm vụ khẩn trương tổ chức khu vực cách ly và xây dựng kế hoạch cụ thể để tiếp nhận và điều trị bệnh nhân .
+Trước 16 g hằng ngày , các bệnh viện phải báo cáo tình hình thu dung điều trị các diễn biến của bệnh về Vụ Điều trị .
+LAN ANH ghi

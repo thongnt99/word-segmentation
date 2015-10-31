@@ -13,10 +13,12 @@ public class Segmenter {
 
 	private RegexMatcher regexMatcher;
 	private Dictionary vDict;
+	private Dictionary nPrefix;
 
 	public Segmenter() {
 		regexMatcher = new RegexMatcher(Paths.REGEX_PATH);
 		vDict = Dictionary.getDictionary(Paths.VILEX_DICT_PATH);
+		nPrefix = Dictionary.getDictionary(Paths.NAME_PREFIX);
 	}
 
 	public List<String> segment(String input) {
@@ -32,6 +34,17 @@ public class Segmenter {
 			if (matchingRes.isPhrase()) {
 				List<String> subSegs = segmentPhrase(matchedPart);
 				segs.addAll(subSegs);
+			} else
+			if (matchingRes.isName()) {
+				String firtsToken = StrUtils.tokenizeString(matchedPart).get(0);
+				String secondToken = matchedPart.substring(firtsToken.length()).trim();
+				if (nPrefix.contains(firtsToken)) {
+					segs.add(firtsToken);
+					segs.add(secondToken.replace(" ", "_"));
+				} else {
+					segs.add(matchedPart.replace(' ', '_'));
+				}
+
 			} else
 				segs.add(matchedPart.replace(' ', '_'));
 		}

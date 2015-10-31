@@ -30,9 +30,9 @@ public class Evaluation {
 				+ "Pre\tRecall\tF1");
 
 		File textDir = new File(TEXT_DIR);
-		for (String s : textDir.list()) {			
+		for (String s : textDir.list()) {
 			String fileName = s.substring(0, s.lastIndexOf('.'));
-//			if (fileName.equals("50511"))
+			// if (fileName.equals("50511"))
 			process(fileName);
 		}
 
@@ -69,7 +69,7 @@ public class Evaluation {
 			long start = System.currentTimeMillis();
 
 			while ((line = reader.readLine()) != null) {
-				segmentRes.add(segmenter.segment(line));				
+				segmentRes.add(segmenter.segment(line));
 				lineCount++;
 			}
 

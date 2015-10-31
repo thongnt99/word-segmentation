@@ -31,9 +31,8 @@ public class WrongSegmentExporter {
 			e.printStackTrace();
 		}
 		
-		
-		
-		File folder = new File("data/test");
+				
+		File folder = new File("data/test/seg_human");
 		if (!folder.exists() || !folder.isDirectory()) return;		
 		for (File file : folder.listFiles()){			
 			try{

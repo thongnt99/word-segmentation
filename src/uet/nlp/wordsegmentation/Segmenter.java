@@ -16,7 +16,7 @@ public class Segmenter {
 
 	public Segmenter() {
 		regexMatcher = new RegexMatcher(Paths.REGEX_PATH);
-		vDict = Dictionary.getDictionary(Paths.VIET_DICT_PATH);
+		vDict = Dictionary.getDictionary(Paths.VILEX_DICT_PATH);
 	}
 
 	public List<String> segment(String input) {

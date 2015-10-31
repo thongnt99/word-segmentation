@@ -7,8 +7,6 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import uet.nlp.utils.StrUtils;
-
 public class Evaluation {
 
 	private static final String TEXT_DIR = "data/test/text";
@@ -158,7 +156,7 @@ public class Evaluation {
 		int index = 0;
 		for (int i = 0; i < words.length; i++) {
 			indexArr[i] = index;
-			index += StrUtils.tokenizeString(words[i], "_").size();
+			index += words[i].replace("_", "").length();
 		}
 		return indexArr;
 	}
@@ -168,7 +166,7 @@ public class Evaluation {
 		int index = 0;
 		for (int i = 0; i < words.size(); i++) {
 			indexArr[i] = index;
-			index += StrUtils.tokenizeString(words.get(i), "_").size();
+			index += words.get(i).replace("_", "").length();
 		}
 		return indexArr;
 	}

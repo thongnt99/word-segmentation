@@ -1,0 +1,6 @@
+2004/09/13 17:00:35
+Đà Nẵng : Khai báo thủ tục hải quan qua mạng internet
+TTO - Theo ông Trần Thoang - cán bộ thủ tục tàu biển xuất nhập cảnh ( XNC ) - Cục Hải quan ( HQ ) Đà Nẵng - đến nay đã có hơn 10 hãng đại lý tàu biển lớn với trên 70 lượt tàu , thuyền đã thực hiện khai báo thủ tục HQ tàu biển XNC qua hệ thống cảng Đà Nẵng từ mạng internet ( hoặc qua hệ thống liên lạc vệ tinh trên biển - Inmarsat ) .
+Theo đó , trước khi tàu cập cảng , các chủ tàu ( hoặc đại lý ) sẽ thực hiện sớm thủ tục khai báo liên quan đến lai lịch , hải trình , số lượng , chủng loại hàng hoá ... Toàn bộ khai báo này được gửi đến địa chỉ e-mail của bộ phận thủ tục HQ tàu biển XNC thuộc Cục HQ. TP Đà Nẵng ( ngoài ra cũng có thể khai báo qua website của UBNDTP Đà Nẵng hay website Cục hàng hải VN ) .
+Nội dung nầy sau đó được bộ phận chuyên trách chuyển ngay đến các tổ công tác của lực lượng ( thông qua mạng LAN nội bộ ) để xử lý và sớm có ý kiến phản hồi cho người gửi .
+T.NGỌC

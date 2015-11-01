@@ -1,3 +1,9 @@
+*.class
+data/test/seg_model/
+.idea/
+*.iml
+bin/
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db

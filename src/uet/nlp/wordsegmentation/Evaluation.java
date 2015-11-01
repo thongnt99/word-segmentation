@@ -32,6 +32,7 @@ public class Evaluation {
 		File textDir = new File(TEXT_DIR);
 		for (String s : textDir.list()) {
 			String fileName = s.substring(0, s.lastIndexOf('.'));
+			// if (fileName.equals("50511"))
 			process(fileName);
 		}
 
@@ -161,7 +162,7 @@ public class Evaluation {
 		return indexArr;
 	}
 
-	private static int[] calculateIndex(List<String> words) {
+	public static int[] calculateIndex(List<String> words) {
 		int[] indexArr = new int[words.size()];
 		int index = 0;
 		for (int i = 0; i < words.size(); i++) {

@@ -33,4 +33,7 @@ public class Regex {
 	public boolean isPhrase() {
 		return type.equals(PHRASE_TYPE);
 	}
+	public boolean isName(){
+		return type.startsWith("name");
+	}
 }

@@ -40,7 +40,7 @@ public class Segmenter {
 				String secondToken = matchedPart.substring(firtsToken.length()).trim();
 				if (nPrefix.contains(firtsToken)) {
 					segs.add(firtsToken);
-					segs.add(secondToken.replace(" ", "_"));
+					input = secondToken + " " + input;
 				} else {
 					segs.add(matchedPart.replace(' ', '_'));
 				}

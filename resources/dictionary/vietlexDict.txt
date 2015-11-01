@@ -1,3 +1,7 @@
+di dời
+xây dựng cơ bản
+xe điện ngầm
+xe điện
 chiến trường
 tĩnh học
 quả phúc
@@ -5418,6 +5422,7 @@ chào hàng
 dễ chịu
 thoái trào
 công chính
+công chánh
 thụp
 dải rút
 ụ súng

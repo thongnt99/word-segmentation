@@ -38,6 +38,7 @@ public class Dictionary {
 		BufferedReader reader = new BufferedReader(new FileReader(dictPath));
 		String line;
 		while ((line = reader.readLine()) != null) {
+			if (line.startsWith("#")) continue;
 			dict.add(StrUtils.normalizeString(line));
 		}
 		reader.close();

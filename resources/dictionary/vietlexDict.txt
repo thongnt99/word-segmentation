@@ -1,7 +1,19 @@
+#them vao
 di dời
+kiểm hóa viên
+kiểm tra viên
 xây dựng cơ bản
 xe điện ngầm
 xe điện
+xe lửa
+không cánh mà bay
+hạ tầng
+nâng cao
+lòng tin
+đập tràn
+không những
+mà còn
+#tu dien cu
 chiến trường
 tĩnh học
 quả phúc
@@ -2141,7 +2153,6 @@ hầu cận
 cóng
 nội quy
 ki bo
-bắt đầu từ
 thâm
 tang tảng sáng
 phẩm chất
@@ -5070,7 +5081,7 @@ tàu vét
 cương
 bạc lót
 chồng chưa cưới
-thứ tư
+#thứ tư
 nằn nì
 UBND
 mưa
@@ -9250,7 +9261,7 @@ phong lưu
 chiều hướng
 cẩn tắc
 dế
-thứ bảy
+#thứ bảy
 chủ nghĩa tự do
 nguyên quán
 búa đanh
@@ -11257,7 +11268,7 @@ hoại
 y lí
 an cư
 cưỡng
-thứ hai
+#thứ hai
 đau thương
 dôi
 bắt đền
@@ -13297,7 +13308,7 @@ lưu
 toả nhiệt
 ngo ngoe
 mai táng
-thứ sáu
+#thứ sáu
 ma quỷ
 lạch xà lạch xạch
 đấu tranh giai cấp
@@ -13861,7 +13872,7 @@ bám càng
 dung thứ
 bất hủ
 kiểm sát
-thứ năm
+#thứ năm
 giêng hai
 lịm
 bình luận viên
@@ -18281,6 +18292,7 @@ chủ trị
 chia phôi
 lai láng
 cậy
+thuộc
 súc sản
 lênh kha lênh khênh
 bồn địa
@@ -20989,7 +21001,7 @@ gio
 chạy chữa
 hàng xén
 phú
-thứ ba
+#thứ ba
 hểnh
 đắc ý
 phong hàn
@@ -28165,7 +28177,7 @@ tẩn
 duy
 hỗn quân
 cha cố
-ty
+#ty
 học sinh
 sỏi
 áp bức

@@ -32,7 +32,7 @@ public class Evaluation {
 		File textDir = new File(TEXT_DIR);
 		for (String s : textDir.list()) {
 			String fileName = s.substring(0, s.lastIndexOf('.'));
-			// if (fileName.equals("50511"))
+//			 if (fileName.equals("29813"))
 			process(fileName);
 		}
 

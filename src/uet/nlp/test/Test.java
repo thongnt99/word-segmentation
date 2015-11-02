@@ -8,7 +8,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Segmenter segmenter = new Segmenter();
-		List<String> tokens = segmenter.segment("");
+		List<String> tokens = segmenter.segment("dự án có giá trị 3 tỉ đồng");
 		for (String token : tokens)
 			System.out.println(token);
 	}

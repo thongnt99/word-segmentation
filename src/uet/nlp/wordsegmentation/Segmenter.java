@@ -57,6 +57,10 @@ public class Segmenter {
 		List<String> segs = new ArrayList<String>();
 		List<String> tokens = StrUtils.tokenizeString(phrase);
 		List<Integer> bestSegs = wordGraph.getShortestPath();
+		if (bestSegs == null){
+			wordGraph.resolveOOV();
+			bestSegs = wordGraph.getShortestPath();
+		}
 		if (bestSegs != null)
 			for (int i = 1; i < bestSegs.size(); i++) {
 				int start = bestSegs.get(i) - 1;

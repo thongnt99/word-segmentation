@@ -11,40 +11,14 @@ public class Graph {
 	private int[] index;
 	private int[] trace;
 	private double[] distance;
+	private List<Edge> edges;
 
 	public Graph(int n, List<Edge> edges) {
 		this.n = n;
-		isReached = new boolean[n + 1];
-		index = new int[n + 1];
-
-		for (int i = 0; i <= n; i++) {
-			index[i] = 0;
-			isReached[i] = false;
-		}
-
-		for (Edge edge : edges) {
-			index[edge.getSrc()]++;
-		}
-		for (int i = 1; i <= n; i++) {
-			if (index[i] == 0) {
-				index[i] = 1;
-				edges.add(new Edge(i, i + 1, 1));
-			}
-		}
-
-		for (int i = 1; i <= n; i++)
-			index[i] = index[i - 1] + index[i];
-		int[] tmp = new int[n + 1];
-		for (int i = 0; i <= n; i++)
-			tmp[i] = index[i];
-		adjList = new int[index[n]];
-
-		for (Edge edge : edges) {
-			int src = edge.getSrc();
-			int des = edge.getDes();
-			tmp[src]--;
-			adjList[tmp[src]] = des;
-		}
+		this.edges = edges;
+		init();
+		calculateIndex(false);
+		buildAdjList();
 		// for (int i=1; i<=n; i++) {
 		// System.out.println("---------------");
 		// System.out.println(index[i]);
@@ -52,6 +26,51 @@ public class Graph {
 		// System.out.print(adjList[j]+" ");
 		// System.out.println();
 		// }
+	}
+
+	private void init() {
+		isReached = new boolean[n + 1];
+		index = new int[n + 1];
+
+		for (int i = 0; i <= n; i++) {
+			index[i] = 0;
+			isReached[i] = false;
+		}
+	}
+
+	private void calculateIndex(boolean withOOV) {
+		for (Edge edge : edges) {
+			index[edge.getSrc()]++;
+		}
+		if (withOOV)
+			for (int i = 1; i <= n; i++) {
+				if (index[i] == 0) {
+					index[i] = 1;
+					edges.add(new Edge(i, i + 1, 1));
+				}
+			}
+		for (int i = 1; i <= n; i++)
+			index[i] = index[i - 1] + index[i];
+
+	}
+
+	private void buildAdjList() {
+		int[] tmp = new int[n + 1];
+		for (int i = 0; i <= n; i++)
+			tmp[i] = index[i];
+		adjList = new int[index[n]];
+		for (Edge edge : edges) {
+			int src = edge.getSrc();
+			int des = edge.getDes();
+			tmp[src]--;
+			adjList[tmp[src]] = des;
+		}
+	}
+
+	public void resolveOOV() {
+		init();
+		calculateIndex(true);
+		buildAdjList();
 	}
 
 	public List<Integer> getShortestPath() {

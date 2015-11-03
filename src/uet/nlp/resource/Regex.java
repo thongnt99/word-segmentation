@@ -36,4 +36,7 @@ public class Regex {
 	public boolean isName(){
 		return type.startsWith("name");
 	}
+	public boolean isAllCap(){
+		return type.startsWith("allcaps");
+	}
 }

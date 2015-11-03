@@ -14,11 +14,19 @@ public class Segmenter {
 	private RegexMatcher regexMatcher;
 	private Dictionary vDict;
 	private Dictionary nPrefix;
+	private Dictionary firstNameDict;
+	private Dictionary lastNameDict;
 
 	public Segmenter() {
 		regexMatcher = new RegexMatcher(Paths.REGEX_PATH);
 		vDict = Dictionary.getDictionary(Paths.VILEX_DICT_PATH);
 		nPrefix = Dictionary.getDictionary(Paths.NAME_PREFIX);
+		firstNameDict = Dictionary.getDictionary(Paths.FIRST_NAME);
+		lastNameDict = Dictionary.getDictionary(Paths.LAST_NAME);
+	}
+
+	private boolean isNameComponent(String str) {
+		return (firstNameDict.contains(str) || lastNameDict.contains(str));
 	}
 
 	public List<String> segment(String input) {
@@ -34,10 +42,10 @@ public class Segmenter {
 			if (matchingRes.isPhrase()) {
 				List<String> subSegs = segmentPhrase(matchedPart);
 				segs.addAll(subSegs);
-			} else
-			if (matchingRes.isName()) {
+			} else if (matchingRes.isName()) {
 				String firtsToken = StrUtils.tokenizeString(matchedPart).get(0);
-				String secondToken = matchedPart.substring(firtsToken.length()).trim();
+				String secondToken = matchedPart.substring(firtsToken.length())
+						.trim();
 				if (nPrefix.contains(firtsToken)) {
 					segs.add(firtsToken);
 					input = secondToken + " " + input;
@@ -45,6 +53,16 @@ public class Segmenter {
 					segs.add(matchedPart.replace(' ', '_'));
 				}
 
+			} else if (matchingRes.isAllCap()) {
+				List<String> tokens = StrUtils.tokenizeString(matchedPart);
+				if (isNameComponent(tokens.get(0))
+						|| isNameComponent(tokens.get(tokens.size() - 1))) {
+					segs.add(matchedPart.replace(" ", "_"));
+				} else {
+					for (String token : tokens){
+						segs.add(token);
+					}
+				}
 			} else
 				segs.add(matchedPart.replace(' ', '_'));
 		}
@@ -57,7 +75,7 @@ public class Segmenter {
 		List<String> segs = new ArrayList<String>();
 		List<String> tokens = StrUtils.tokenizeString(phrase);
 		List<Integer> bestSegs = wordGraph.getShortestPath();
-		if (bestSegs == null){
+		if (bestSegs == null) {
 			wordGraph.resolveOOV();
 			bestSegs = wordGraph.getShortestPath();
 		}

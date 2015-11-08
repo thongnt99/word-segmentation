@@ -128,9 +128,9 @@ public class Graph {
 				dis = dis + 1 / (double) (j - i);
 				currentPath.add(j);
 				if (j == n) {
-					if ( dis == shortestDistance){
+//					if ( dis == shortestDistance){
 						allShortestPaths.add(new ArrayList<Integer>(currentPath));
-					}
+//					}
 				} else
 					DFS(j, dis);
 				dis = dis - 1 / (double) (j - i);

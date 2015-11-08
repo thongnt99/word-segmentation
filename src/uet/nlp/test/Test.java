@@ -8,7 +8,7 @@ public class Test {
 	
 	public static void main(String[] args) {
 		Segmenter segmenter = new Segmenter();
-		List<String> tokens = segmenter.segment("thuộc địa phận hai phường Yên Hoà và Trung Hoà");
+		List<String> tokens = segmenter.segment("tính từ bổ nghĩa cho động từ");
 		for (String token : tokens)
 			System.out.println(token);
 	}

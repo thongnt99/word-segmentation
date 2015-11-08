@@ -4,5 +4,7 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="libs/jmdn-base.jar"/>
 	<classpathentry kind="lib" path="libs/tokenizer.jar"/>
+	<classpathentry kind="lib" path="D:/UET/NLP/word-segmentation/libs/uet-lm.jar"/>
+	<classpathentry kind="lib" path="D:/UET/NLP/word-segmentation/libs/kylm-0.0.7.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

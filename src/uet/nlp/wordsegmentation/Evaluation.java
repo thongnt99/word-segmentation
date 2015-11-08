@@ -43,8 +43,7 @@ public class Evaluation {
 		System.out.println("Total\t" + totalLines + "\t" + totalTime + "\t"
 				+ totalHumanCount + "\t" + totalModelCount + "\t"
 				+ totalMatchCount + "\t" + precision + "\t" + recall + "\t"
-				+ f1);
-		System.out.println(segmenter.count);
+				+ f1);		
 	}
 
 	private static long init() {

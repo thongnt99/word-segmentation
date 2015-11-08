@@ -76,7 +76,7 @@ public class Graph {
 		buildAdjList();
 	}
 
-	public List<Integer> getShortestPath() {
+	public double calculateShortestDistance() {
 		trace = new int[n + 1];
 		distance = new double[n + 1];
 		for (int i = 1; i <= n; i++)
@@ -90,27 +90,19 @@ public class Graph {
 					min = distance[i];
 					minVt = i;
 				}
-			if (minVt == -1)
-				return null;
+			if (minVt == -1) return -1;				
 			isReached[minVt] = true;
 			if (minVt == n) {
 				int vt = n;
 				shortestDistance = min;
-				List<Integer> path = new ArrayList<Integer>();
-				while (vt != 1) {
-					path.add(vt);
-					vt = trace[vt];
-				}
-				path.add(1);
-				return path;
+				return shortestDistance;								
 			}
 			for (int i = index[minVt - 1]; i < index[minVt]; i++) {
 				int j = adjList[i];
 				if (!isReached[j]
 						&& distance[j] > distance[minVt] + 1
 								/ (double) (j - minVt)) {
-					distance[j] = distance[minVt] + 1 / (double) (j - minVt);
-					trace[j] = minVt;
+					distance[j] = distance[minVt] + 1 / (double) (j - minVt);					
 				}
 			}
 
@@ -137,7 +129,7 @@ public class Graph {
 				currentPath.add(j);
 				if (j == n) {
 					if ( dis == shortestDistance){
-						allShortestPaths.add(currentPath);
+						allShortestPaths.add(new ArrayList<Integer>(currentPath));
 					}
 				} else
 					DFS(j, dis);

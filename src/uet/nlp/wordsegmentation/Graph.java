@@ -11,6 +11,9 @@ public class Graph {
 	private int[] index;
 	private int[] trace;
 	private double[] distance;
+	private double shortestDistance;
+	private List<List<Integer>> allShortestPaths;
+	private List<Integer> currentPath;
 	private List<Edge> edges;
 
 	public Graph(int n, List<Edge> edges) {
@@ -92,6 +95,7 @@ public class Graph {
 			isReached[minVt] = true;
 			if (minVt == n) {
 				int vt = n;
+				shortestDistance = min;
 				List<Integer> path = new ArrayList<Integer>();
 				while (vt != 1) {
 					path.add(vt);
@@ -110,6 +114,38 @@ public class Graph {
 				}
 			}
 
+		}
+	}
+
+	public List<List<Integer>> getAllShortestPaths() {		
+		allShortestPaths = new ArrayList<List<Integer>>();
+		currentPath = new ArrayList<Integer>();
+		for (int i = 1; i <= n; i++)
+			isReached[i] = false;
+		isReached[1] = true;
+		currentPath.add(1);
+		DFS(1,0);
+		return allShortestPaths;
+	}
+
+	public void DFS(int i, double dis) {
+		for (int k = index[i-1]; k < index[i]; k++) {
+			int j = adjList[k];
+			if (!isReached[j]) {
+				isReached[j] = true;
+				dis = dis + 1 / (double) (j - i);
+				currentPath.add(j);
+				if (j == n) {
+					if ( dis == shortestDistance){
+						allShortestPaths.add(currentPath);
+					}
+				} else
+					DFS(j, dis);
+				dis = dis - 1 / (double) (j - i);
+				isReached[j] = false;
+				currentPath.remove(new Integer(j));
+//				currentPath.remove(currentPath.size()-1);
+			}
 		}
 	}
 }

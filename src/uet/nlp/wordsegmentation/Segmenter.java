@@ -16,6 +16,7 @@ public class Segmenter {
 	private Dictionary nPrefix;
 	private Dictionary firstNameDict;
 	private Dictionary lastNameDict;
+	int count = 0;
 
 	public Segmenter() {
 		regexMatcher = new RegexMatcher(Paths.REGEX_PATH);
@@ -59,7 +60,7 @@ public class Segmenter {
 						|| isNameComponent(tokens.get(tokens.size() - 1))) {
 					segs.add(matchedPart.replace(" ", "_"));
 				} else {
-					for (String token : tokens){
+					for (String token : tokens) {
 						segs.add(token);
 					}
 				}
@@ -78,8 +79,14 @@ public class Segmenter {
 		if (bestSegs == null) {
 			wordGraph.resolveOOV();
 			bestSegs = wordGraph.getShortestPath();
-		}
-		if (bestSegs != null)
+		}		
+		if (bestSegs != null) {
+			List<List<Integer>> allShortestPaths = wordGraph
+					.getAllShortestPaths();
+//			System.out.println(allShortestPaths.size());
+			if (allShortestPaths.size() >= 2) {
+				count++;
+			}
 			for (int i = 1; i < bestSegs.size(); i++) {
 				int start = bestSegs.get(i) - 1;
 				int end = bestSegs.get(i - 1) - 1;
@@ -88,9 +95,8 @@ public class Segmenter {
 					word.append("_" + tokens.get(j));
 				segs.add(0, word.toString());
 			}
-		else
+		} else
 			segs.addAll(tokens);
-
 		return segs;
 	}
 

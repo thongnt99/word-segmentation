@@ -44,6 +44,7 @@ public class Evaluation {
 				+ totalHumanCount + "\t" + totalModelCount + "\t"
 				+ totalMatchCount + "\t" + precision + "\t" + recall + "\t"
 				+ f1);
+		System.out.println(segmenter.count);
 	}
 
 	private static long init() {

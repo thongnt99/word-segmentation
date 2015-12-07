@@ -25,7 +25,7 @@ public class Segmenter {
 		nPrefix = Dictionary.getDictionary(Paths.NAME_PREFIX);
 		firstNameDict = Dictionary.getDictionary(Paths.FIRST_NAME);
 		lastNameDict = Dictionary.getDictionary(Paths.LAST_NAME);
-		languageModel = new MyLM("data/model_novocab.arpa");
+//		languageModel = new MyLM("data/model_novocab.arpa");
 	}
 
 	private boolean isNameComponent(String str) {
@@ -43,7 +43,8 @@ public class Segmenter {
 			matchedPart = input.substring(0, matchedEnd).trim();
 			input = input.substring(matchedEnd).trim();
 			if (matchingRes.isPhrase()) {
-				List<String> subSegs = segmentPhrase(matchedPart);
+//				List<String> subSegs = segmentPhrase(matchedPart);
+				List<String> subSegs = PhraseSegmenter.phraseSegmenter.segment(matchedPart);
 				segs.addAll(subSegs);
 			} else if (matchingRes.isName()) {
 				String firtsToken = StrUtils.tokenizeString(matchedPart).get(0);
